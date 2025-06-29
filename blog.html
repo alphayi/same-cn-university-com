@@ -255,6 +255,7 @@
         }
 
         .read-more-btn {
+            display: inline-block;
             background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
             color: white;
             border: none;
@@ -262,6 +263,7 @@
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
+            text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 1rem;
@@ -542,7 +544,7 @@
                             </div>
                         </div>
 
-                        <button class="read-more-btn" onclick="toggleArticle('article1', this)">查看完整文章</button>
+                        <a href="blog-article-1.html" class="read-more-btn" target="_blank">查看完整文章</a>
 
                         <div class="blog-meta">
                             <div class="blog-tags">
@@ -660,7 +662,7 @@
                             </ul>
                         </div>
 
-                        <button class="read-more-btn" onclick="toggleArticle('article2', this)">查看完整文章</button>
+                        <a href="blog-article-2.html" class="read-more-btn" target="_blank">查看完整文章</a>
 
                         <div class="blog-meta">
                             <div class="blog-tags">
@@ -808,7 +810,7 @@
                             </ol>
                         </div>
 
-                        <button class="read-more-btn" onclick="toggleArticle('article3', this)">查看完整文章</button>
+                        <a href="blog-article-3.html" class="read-more-btn" target="_blank">查看完整文章</a>
 
                         <div class="blog-meta">
                             <div class="blog-tags">
@@ -896,21 +898,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function toggleArticle(articleId, button) {
-            const article = document.getElementById(articleId);
-            const isExpanded = article.classList.contains('active');
-
-            if (isExpanded) {
-                article.classList.remove('active');
-                button.textContent = '查看完整文章';
-                article.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                article.classList.add('active');
-                button.textContent = '收起文章';
-            }
-        }
-    </script>
 </body>
 </html>
