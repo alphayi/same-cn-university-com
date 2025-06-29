@@ -12,12 +12,14 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             line-height: 1.6;
             color: #333;
             background: #fff;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -30,42 +32,23 @@
             color: white;
             padding: 1rem 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
             font-size: 1.8rem;
             font-weight: bold;
             color: #fff;
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .nav-links {
@@ -73,12 +56,14 @@
             list-style: none;
             gap: 2rem;
         }
+
         .nav-links a {
             color: white;
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
         }
+
         .nav-links a:hover {
             color: #FFD700;
         }
@@ -91,49 +76,319 @@
             text-align: center;
             margin-top: 70px;
         }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .btn {
-            padding: 15px 30px;
+            padding: 12px 30px;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
+            display: inline-block;
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .btn-primary {
-            background: #FFD700;
-            color: #333;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
         }
-        .btn-primary:hover {
-            background: #FFC107;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
-        }
+
         .btn-secondary {
-            background: transparent;
+            background: rgba(255,255,255,0.2);
             color: white;
             border: 2px solid white;
         }
-        .btn-secondary:hover {
-            background: white;
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* University Categories Section */
+        .university-categories {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
             color: #333;
+            font-weight: 700;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #667eea;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .category-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Statistics Section */
+        .statistics {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            padding: 2rem 1rem;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 250px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -141,34 +396,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 背景圆形 -->
-                    <circle cx="20" cy="20" r="19" fill="rgba(255,215,0,0.1)" stroke="#FFD700" stroke-width="1"/>
-
-                    <!-- 长城线条（中国风元素） -->
-                    <path d="M5 25 L10 22 L15 25 L20 22 L25 25 L30 22 L35 25"
-                          stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-                    <!-- 书本 -->
-                    <rect x="8" y="12" width="12" height="8" fill="white" stroke="#FFD700" stroke-width="1" rx="1"/>
-                    <line x1="14" y1="12" x2="14" y2="20" stroke="#FFD700" stroke-width="1"/>
-                    <line x1="10" y1="15" x2="12" y2="15" stroke="#FFD700" stroke-width="0.5"/>
-                    <line x1="10" y1="17" x2="12" y2="17" stroke="#FFD700" stroke-width="0.5"/>
-
-                    <!-- 学士帽 -->
-                    <path d="M22 8 L32 12 L22 16 L12 12 Z" fill="#FFD700"/>
-                    <rect x="21" y="8" width="2" height="8" fill="#FFD700"/>
-                    <circle cx="22" cy="8" r="1" fill="white"/>
-
-                    <!-- 帽子流苏 -->
-                    <line x1="32" y1="12" x2="34" y2="14" stroke="#FFD700" stroke-width="1"/>
-                    <circle cx="34" cy="14" r="0.5" fill="#FFD700"/>
-                </svg>
-                <span class="logo-text">中国大学网</span>
-            </a>
+            <a href="#" class="logo">中国大学网</a>
             <ul class="nav-links">
-                <li><a href="home.html">首页</a></li>
+                <li><a href="index.html">首页</a></li>
                 <li><a href="985-universities.html">985大学</a></li>
                 <li><a href="211-universities.html">211大学</a></li>
                 <li><a href="double-first-class.html">双一流大学</a></li>
@@ -180,14 +410,210 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>中国大学网</h1>
-            <p>专业的中国大学查询平台，助力高考志愿填报</p>
+            <h1>中国大学权威查询平台</h1>
+            <p>专业提供985大学、211大学、双一流大学完整信息，助力高考志愿填报，让每一个选择都有据可依</p>
             <div class="cta-buttons">
                 <a href="985-universities.html" class="btn btn-primary">查看985大学</a>
                 <a href="211-universities.html" class="btn btn-secondary">查看211大学</a>
-                <a href="double-first-class.html" class="btn btn-secondary">双一流大学</a>
+                <a href="double-first-class.html" class="btn btn-secondary">查看双一流大学</a>
             </div>
         </div>
     </section>
+
+    <!-- University Categories -->
+    <section class="university-categories">
+        <div class="container">
+            <h2 class="section-title">中国顶尖大学分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>985工程大学</h3>
+                    <p>985工程是中国为建设世界一流大学而实施的重点建设工程，代表中国高等教育的最高水平。这些大学在学术声誉、师资力量、科研实力等方面处于国内领先地位。</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">39</div>
+                            <div class="stat-label">所大学</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">31</div>
+                            <div class="stat-label">个省市</div>
+                        </div>
+                    </div>
+                    <a href="985-universities.html" class="btn btn-primary">查看详情</a>
+                </div>
+
+                <div class="category-card">
+                    <h3>211工程大学</h3>
+                    <p>211工程是面向21世纪重点建设100所左右的高等学校和一批重点学科的建设工程，是国家重点支持的高水平大学群体，涵盖了中国最优秀的高等学府。</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">116</div>
+                            <div class="stat-label">所大学</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">32</div>
+                            <div class="stat-label">个省市</div>
+                        </div>
+                    </div>
+                    <a href="211-universities.html" class="btn btn-primary">查看详情</a>
+                </div>
+
+                <div class="category-card">
+                    <h3>双一流大学</h3>
+                    <p>双一流建设是中国高等教育领域继211工程、985工程之后的又一国家战略，包含世界一流大学建设高校和世界一流学科建设高校，代表着新时代中国高等教育发展的方向。</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">147</div>
+                            <div class="stat-label">所大学</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">465</div>
+                            <div class="stat-label">个学科</div>
+                        </div>
+                    </div>
+                    <a href="double-first-class.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">平台特色功能</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <h3>按省市精准筛选</h3>
+                    <p>支持按照省份、直辖市进行精准筛选，快速找到目标地区的985、211、双一流大学，为地域选择提供便利。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>完整大学信息</h3>
+                    <p>提供大学的详细介绍、专业设置、录取分数线、就业情况等全方位信息，帮助学生全面了解目标院校。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>专业志愿填报指导</h3>
+                    <p>基于多年经验总结的志愿填报策略和技巧，帮助考生避开常见陷阱，科学合理地填报高考志愿。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <h3>实时数据更新</h3>
+                    <p>及时更新最新的大学排名、专业调整、招生政策等信息，确保用户获取的都是最准确的数据。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics">
+        <div class="container">
+            <h2 class="section-title">平台数据统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">302</div>
+                    <div class="label">所高校信息</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">500+</div>
+                    <div class="label">个专业介绍</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">32</div>
+                    <div class="label">个省市覆盖</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100万+</div>
+                    <div class="label">用户信赖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">高考志愿填报指南</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <h3>2025年高考志愿填报注意事项</h3>
+                        <p>详细解读2025年高考志愿填报的最新政策变化，包括新高考模式下的选科要求、批次设置、投档规则等重要信息。</p>
+                        <div class="blog-meta">
+                            <span>2024年12月</span>
+                            <span>阅读量: 15,280</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <h3>2025年高考志愿避坑指南</h3>
+                        <p>总结历年高考志愿填报中的常见错误和陷阱，帮助考生和家长避免因信息不对称而造成的志愿填报失误。</p>
+                        <div class="blog-meta">
+                            <span>2024年12月</span>
+                            <span>阅读量: 12,156</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-content">
+                        <h3>2025年高考志愿填报专业避坑指南</h3>
+                        <p>深度分析热门专业与冷门专业的就业前景，专业选择的误区，以及如何根据个人兴趣和能力选择适合的专业方向。</p>
+                        <div class="blog-meta">
+                            <span>2024年12月</span>
+                            <span>阅读量: 18,932</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="blog.html" class="btn btn-primary">查看更多文章</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>大学分类</h3>
+                    <ul>
+                        <li><a href="985-universities.html">985工程大学</a></li>
+                        <li><a href="211-universities.html">211工程大学</a></li>
+                        <li><a href="double-first-class.html">双一流大学</a></li>
+                        <li><a href="double-first-class.html#disciplines">双一流学科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>志愿填报</h3>
+                    <ul>
+                        <li><a href="blog.html">填报指南</a></li>
+                        <li><a href="blog.html#tips">填报技巧</a></li>
+                        <li><a href="blog.html#mistakes">常见误区</a></li>
+                        <li><a href="blog.html#majors">专业选择</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#about">网站介绍</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#privacy">隐私政策</a></li>
+                        <li><a href="#terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系信息</h3>
+                    <p>邮箱：info@cn-university.com</p>
+                    <p>地址：中国北京市</p>
+                    <p>专注于为广大考生和家长提供权威、准确的大学信息和志愿填报指导</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 中国大学网. 版权所有. | 专业的985大学、211大学、双一流大学查询平台</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
