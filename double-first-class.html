@@ -534,9 +534,9 @@
     <!-- Tab Navigation -->
     <section class="tab-navigation">
         <div class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('introduction')">双一流介绍</button>
-            <button class="tab-btn" onclick="switchTab('universities')">世界一流大学</button>
-            <button class="tab-btn" onclick="switchTab('disciplines')">世界一流学科</button>
+            <button class="tab-btn active" onclick="switchTab(event, 'introduction')">双一流介绍</button>
+            <button class="tab-btn" onclick="switchTab(event, 'universities')">世界一流大学</button>
+            <button class="tab-btn" onclick="switchTab(event, 'disciplines')">世界一流学科</button>
         </div>
     </section>
 
@@ -1204,7 +1204,7 @@
         let filteredFirstClassDisciplineUniversities = [...firstClassDisciplineUniversities];
         let filteredDisciplines = { ...worldClassDisciplines };
 
-        function switchTab(tabName) {
+        function switchTab(event, tabName) {
             // 隐藏所有tab内容
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
