@@ -1,26 +1,1048 @@
-<a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 背景圆形 -->
-                    <circle cx="20" cy="20" r="19" fill="rgba(255,215,0,0.1)" stroke="#FFD700" stroke-width="1"/>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双一流大学完整名单 - 世界一流大学建设高校和世界一流学科查询 | 中国大学网</title>
+    <meta name="description" content="双一流大学完整名单，详细介绍什么是双一流建设，提供世界一流大学建设高校和世界一流学科建设高校完整清单，支持按省市查询筛选。">
+    <meta name="keywords" content="双一流大学,双一流学科,世界一流大学,世界一流学科,双一流建设,高考志愿,大学查询">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-                    <!-- 长城线条（中国风元素） -->
-                    <path d="M5 25 L10 22 L15 25 L20 22 L25 25 L30 22 L35 25"
-                          stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round"/>
+        body {
+            font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
 
-                    <!-- 书本 -->
-                    <rect x="8" y="12" width="12" height="8" fill="white" stroke="#FFD700" stroke-width="1" rx="1"/>
-                    <line x1="14" y1="12" x2="14" y2="20" stroke="#FFD700" stroke-width="1"/>
-                    <line x1="10" y1="15" x2="12" y2="15" stroke="#FFD700" stroke-width="0.5"/>
-                    <line x1="10" y1="17" x2="12" y2="17" stroke="#FFD700" stroke-width="0.5"/>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-                    <!-- 学士帽 -->
-                    <path d="M22 8 L32 12 L22 16 L12 12 Z" fill="#FFD700"/>
-                    <rect x="21" y="8" width="2" height="8" fill="#FFD700"/>
-                    <circle cx="22" cy="8" r="1" fill="white"/>
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-                    <!-- 帽子流苏 -->
-                    <line x1="32" y1="12" x2="34" y2="14" stroke="#FFD700" stroke-width="1"/>
-                    <circle cx="34" cy="14" r="0.5" fill="#FFD700"/>
-                </svg>
-                <span class="logo-text">中国大学网</span>
-            </a>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #FFD700;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            color: white;
+            padding: 120px 0 60px;
+            margin-top: 70px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            background: #f8f9fa;
+            padding: 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tab-nav {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-nav button {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-nav button.active {
+            color: #9C27B0;
+            border-bottom-color: #9C27B0;
+            background: rgba(156, 39, 176, 0.05);
+        }
+
+        .tab-nav button:hover {
+            color: #9C27B0;
+            background: rgba(156, 39, 176, 0.05);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem 0;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Introduction Section */
+        .introduction {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .intro-stats {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .intro-stats h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 3rem 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .filter-controls select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            min-width: 150px;
+        }
+
+        .filter-controls select:focus {
+            outline: none;
+            border-color: #9C27B0;
+        }
+
+        .search-results {
+            margin-left: auto;
+            font-weight: 600;
+            color: #9C27B0;
+        }
+
+        /* Universities Grid */
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .university-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #9C27B0;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .university-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .university-location {
+            color: #9C27B0;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .university-type {
+            background: linear-gradient(45deg, #9C27B0, #673AB7);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .university-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .badge-world-class {
+            background: #FF5722;
+            color: white;
+        }
+
+        .badge-985 {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .badge-211 {
+            background: #4ECDC4;
+            color: white;
+        }
+
+        /* Disciplines Section */
+        .disciplines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .discipline-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #9C27B0;
+        }
+
+        .discipline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .discipline-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #9C27B0;
+            margin-bottom: 1rem;
+        }
+
+        .discipline-universities {
+            list-style: none;
+        }
+
+        .discipline-universities li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .discipline-universities li:last-child {
+            border-bottom: none;
+        }
+
+        .university-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .university-province {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+            }
+
+            .universities-grid,
+            .disciplines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-results {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .tab-nav {
+                flex-direction: column;
+            }
+
+            .tab-nav button {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">中国大学网</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="985-universities.html">985大学</a></li>
+                <li><a href="211-universities.html">211大学</a></li>
+                <li><a href="double-first-class.html" class="active">双一流大学</a></li>
+                <li><a href="blog.html">志愿填报指南</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>双一流建设大学</h1>
+            <p>双一流建设是中国高等教育领域继211工程、985工程之后的又一国家战略，旨在建设世界一流大学和一流学科</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <section class="tab-navigation">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('introduction')">双一流介绍</button>
+            <button class="tab-btn" onclick="switchTab('universities')">世界一流大学</button>
+            <button class="tab-btn" onclick="switchTab('disciplines')">世界一流学科</button>
+        </div>
+    </section>
+
+    <!-- Introduction Tab -->
+    <div id="introduction" class="tab-content active">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <a href="index.html">首页</a>
+                    <span>></span>
+                    <span>双一流大学</span>
+                    <span>></span>
+                    <span>双一流介绍</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="introduction">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <h2>什么是双一流建设？</h2>
+                        <p>双一流建设，即建设世界一流大学和一流学科，是中华人民共和国政府于2015年提出的高等教育发展战略。这一战略旨在统筹推进世界一流大学和一流学科建设，实现我国从高等教育大国到高等教育强国的历史性跨越。</p>
+
+                        <p>双一流建设包括两个层次：<strong>世界一流大学建设高校</strong>和<strong>世界一流学科建设高校</strong>。世界一流大学建设高校重点在于推进整体水平提升，世界一流学科建设高校重点在于推进优势学科建设。</p>
+
+                        <p>双一流建设坚持"中国特色、世界一流"的核心要求，以立德树人为根本任务，以支撑创新驱动发展战略、服务经济社会发展为导向，加快建成一批世界一流大学和一流学科，提升我国高等教育综合实力和国际竞争力。</p>
+
+                        <p>与传统的211工程、985工程不同，双一流建设采用动态建设机制，不是终身制，而是采用滚动支持、动态调整、有进有出的建设机制，更加注重绩效导向，激发建设活力。</p>
+                    </div>
+
+                    <div class="intro-stats">
+                        <h3>双一流建设概况</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">147</div>
+                                <div class="stat-label">所建设高校</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">42</div>
+                                <div class="stat-label">所世界一流大学</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">105</div>
+                                <div class="stat-label">所一流学科高校</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">465</div>
+                                <div class="stat-label">个建设学科</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Universities Tab -->
+    <div id="universities" class="tab-content">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-controls">
+                    <label for="provinceFilterUniv">按省市筛选：</label>
+                    <select id="provinceFilterUniv" onchange="filterWorldClassUniversities()">
+                        <option value="">全部省市</option>
+                        <option value="北京">北京市</option>
+                        <option value="上海">上海市</option>
+                        <option value="天津">天津市</option>
+                        <option value="重庆">重庆市</option>
+                        <option value="江苏">江苏省</option>
+                        <option value="浙江">浙江省</option>
+                        <option value="广东">广东省</option>
+                        <option value="山东">山东省</option>
+                        <option value="湖北">湖北省</option>
+                        <option value="湖南">湖南省</option>
+                        <option value="四川">四川省</option>
+                        <option value="陕西">陕西省</option>
+                        <option value="辽宁">辽宁省</option>
+                        <option value="吉林">吉林省</option>
+                        <option value="黑龙江">黑龙江省</option>
+                        <option value="安徽">安徽省</option>
+                        <option value="福建">福建省</option>
+                        <option value="甘肃">甘肃省</option>
+                    </select>
+
+                    <div class="search-results" id="universitySearchResults">共42所世界一流大学建设高校</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Universities Grid -->
+        <section class="universities-section">
+            <div class="container">
+                <div class="universities-grid" id="worldClassUniversitiesGrid">
+                    <!-- 世界一流大学建设高校列表 -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Disciplines Tab -->
+    <div id="disciplines" class="tab-content">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-controls">
+                    <label for="provinceFilterDisc">按省市筛选：</label>
+                    <select id="provinceFilterDisc" onchange="filterDisciplines()">
+                        <option value="">全部省市</option>
+                        <option value="北京">北京市</option>
+                        <option value="上海">上海市</option>
+                        <option value="天津">天津市</option>
+                        <option value="重庆">重庆市</option>
+                        <option value="江苏">江苏省</option>
+                        <option value="浙江">浙江省</option>
+                        <option value="广东">广东省</option>
+                        <option value="山东">山东省</option>
+                        <option value="湖北">湖北省</option>
+                        <option value="湖南">湖南省</option>
+                        <option value="四川">四川省</option>
+                        <option value="陕西">陕西省</option>
+                        <option value="辽宁">辽宁省</option>
+                        <option value="吉林">吉林省</option>
+                        <option value="黑龙江">黑龙江省</option>
+                        <option value="安徽">安徽省</option>
+                        <option value="福建">福建省</option>
+                        <option value="甘肃">甘肃省</option>
+                    </select>
+
+                    <label for="disciplineFilter">按学科筛选：</label>
+                    <select id="disciplineFilter" onchange="filterDisciplines()">
+                        <option value="">全部学科</option>
+                        <option value="哲学">哲学</option>
+                        <option value="理论经济学">理论经济学</option>
+                        <option value="应用经济学">应用经济学</option>
+                        <option value="法学">法学</option>
+                        <option value="政治学">政治学</option>
+                        <option value="马克思主义理论">马克思主义理论</option>
+                        <option value="教育学">教育学</option>
+                        <option value="心理学">心理学</option>
+                        <option value="中国语言文学">中国语言文学</option>
+                        <option value="外国语言文学">外国语言文学</option>
+                        <option value="新闻传播学">新闻传播学</option>
+                        <option value="数学">数学</option>
+                        <option value="物理学">物理学</option>
+                        <option value="化学">化学</option>
+                        <option value="生物学">生物学</option>
+                        <option value="统计学">统计学</option>
+                        <option value="机械工程">机械工程</option>
+                        <option value="材料科学与工程">材料科学与工程</option>
+                        <option value="计算机科学与技术">计算机科学与技术</option>
+                        <option value="临床医学">临床医学</option>
+                        <option value="管理科学与工程">管理科学与工程</option>
+                        <option value="工商管理">工商管理</option>
+                    </select>
+
+                    <div class="search-results" id="disciplineSearchResults">共465个世界一流学科</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disciplines Grid -->
+        <section class="universities-section">
+            <div class="container">
+                <div class="disciplines-grid" id="disciplinesGrid">
+                    <!-- 世界一流学科列表 -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>大学分类</h3>
+                    <ul>
+                        <li><a href="985-universities.html">985工程大学</a></li>
+                        <li><a href="211-universities.html">211工程大学</a></li>
+                        <li><a href="double-first-class.html">双一流大学</a></li>
+                        <li><a href="double-first-class.html#disciplines">双一流学科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>志愿填报</h3>
+                    <ul>
+                        <li><a href="blog.html">填报指南</a></li>
+                        <li><a href="blog.html#tips">填报技巧</a></li>
+                        <li><a href="blog.html#mistakes">常见误区</a></li>
+                        <li><a href="blog.html#majors">专业选择</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#about">网站介绍</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#privacy">隐私政策</a></li>
+                        <li><a href="#terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系信息</h3>
+                    <p>邮箱：info@cn-university.com</p>
+                    <p>地址：中国北京市</p>
+                    <p>专注于为广大考生和家长提供权威、准确的大学信息和志愿填报指导</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 中国大学网. 版权所有. | 专业的985大学、211大学、双一流大学查询平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 世界一流大学建设高校数据
+        const worldClassUniversities = [
+            { name: "北京大学", location: "北京", type: "综合类", category: "A类", features: ["文理并重的综合性大学", "基础学科全面发展", "人文社科全国领先", "国际影响力显著"] },
+            { name: "中国人民大学", location: "北京", type: "综合类", category: "A类", features: ["人文社会科学重镇", "哲学社会科学研究高地", "马克思主义理论教育", "国家智库重要力量"] },
+            { name: "清华大学", location: "北京", type: "理工类", category: "A类", features: ["理工科全球领先", "工程技术世界一流", "创新创业教育典范", "产学研结合紧密"] },
+            { name: "北京航空航天大学", location: "北京", type: "理工类", category: "A类", features: ["航空航天特色鲜明", "信息技术优势突出", "国防科技贡献重大", "工程教育质量卓越"] },
+            { name: "北京理工大学", location: "北京", type: "理工类", category: "A类", features: ["国防军工特色显著", "理工科实力雄厚", "信息技术领域领先", "军民融合发展典范"] },
+            { name: "中国农业大学", location: "北京", type: "农林类", category: "A类", features: ["农业科学世界领先", "生命科学实力突出", "现代农业技术先进", "服务国家粮食安全"] },
+            { name: "北京师范大学", location: "北京", type: "师范类", category: "A类", features: ["师范教育百年传承", "教育科学研究权威", "心理学全国第一", "基础教育服务全国"] },
+            { name: "中央民族大学", location: "北京", type: "民族类", category: "A类", features: ["民族教育特色鲜明", "民族团结进步典范", "多元文化交融发展", "民族地区人才培养"] },
+            { name: "南开大学", location: "天津", type: "综合类", category: "A类", features: ["文理并重发展", "经济学数学强势", "化学生物学著名", "爱国主义教育传统"] },
+            { name: "天津大学", location: "天津", type: "理工类", category: "A类", features: ["中国第一所现代大学", "工程教育历史悠久", "化工建筑全国领先", "工程技术实力雄厚"] },
+            { name: "大连理工大学", location: "辽宁", type: "理工类", category: "A类", features: ["工程技术实力强劲", "化工领域全国领先", "海洋工程特色鲜明", "东北地区重要基地"] },
+            { name: "吉林大学", location: "吉林", type: "综合类", category: "A类", features: ["综合实力东北领先", "汽车工程全国知名", "地质学科历史悠久", "医学教育声誉卓著"] },
+            { name: "哈尔滨工业大学", location: "黑龙江", type: "理工类", category: "A类", features: ["航天技术全国领先", "工程技术世界一流", "国防特色鲜明", "国际合作广泛"] },
+            { name: "复旦大学", location: "上海", type: "综合类", category: "A类", features: ["文理医并重发展", "基础研究实力雄厚", "社会科学影响力大", "国际化程度高"] },
+            { name: "同济大学", location: "上海", type: "理工类", category: "A类", features: ["建筑土木工程著名", "环境科学技术领先", "汽车工程实力强劲", "可持续发展理念"] },
+            { name: "上海交通大学", location: "上海", type: "综合类", category: "A类", features: ["工程技术世界一流", "医学教育历史悠久", "船舶海洋工程领先", "创新创业活跃"] },
+            { name: "华东师范大学", location: "上海", type: "师范类", category: "A类", features: ["师范教育重要基地", "教育科学研究领先", "地理学科全国第一", "国际汉语教育"] },
+            { name: "南京大学", location: "江苏", type: "综合类", category: "A类", features: ["文理并重的综合大学", "基础学科实力雄厚", "人文社科传统深厚", "创新能力突出"] },
+            { name: "东南大学", location: "江苏", type: "综合类", category: "A类", features: ["工科优势明显", "建筑学全国第一", "电子信息技术先进", "医学工程结合"] },
+            { name: "浙江大学", location: "浙江", type: "综合类", category: "A类", features: ["综合实力全国前列", "工程技术实力强劲", "医学教育水平高", "创新创业氛围浓"] },
+            { name: "中国科学技术大学", location: "安徽", type: "理工类", category: "A类", features: ["理科基础研究顶尖", "量子科学世界领先", "精英教育特色鲜明", "科技创新能力强"] },
+            { name: "厦门大学", location: "福建", type: "综合类", category: "A类", features: ["综合性研究型大学", "经济学管理学强势", "海洋科学特色鲜明", "台海研究重要基地"] },
+            { name: "山东大学", location: "山东", type: "综合类", category: "A类", features: ["文史见长的综合大学", "齐鲁文化传承弘扬", "医学教育历史悠久", "多校区协调发展"] },
+            { name: "中国海洋大学", location: "山东", type: "综合类", category: "A类", features: ["海洋科学世界一流", "水产学科全国领先", "海洋特色鲜明", "蓝色经济服务"] },
+            { name: "武汉大学", location: "湖北", type: "综合类", category: "A类", features: ["文理并重发展", "社会科学实力强", "测绘科学技术领先", "樱花校园美誉"] },
+            { name: "华中科技大学", location: "湖北", type: "理工类", category: "A类", features: ["工程技术实力雄厚", "医学教育声誉卓著", "光电技术全球领先", "产学研结合典范"] },
+            { name: "中南大学", location: "湖南", type: "综合类", category: "A类", features: ["有色金属学科权威", "材料科学世界一流", "医学实力全国前列", "轨道交通特色"] },
+            { name: "湖南大学", location: "湖南", type: "综合类", category: "B类", features: ["千年学府历史悠久", "机械工程实力强劲", "建筑学享誉全国", "岳麓文化传承"] },
+            { name: "中山大学", location: "广东", type: "综合类", category: "A类", features: ["综合性研究型大学", "医学实力全国领先", "人文社科底蕴深厚", "华南地区学术重镇"] },
+            { name: "华南理工大学", location: "广东", type: "理工类", category: "A类", features: ["工程技术优势明显", "材料科学领域领先", "建筑学享誉全国", "产学研结合紧密"] },
+            { name: "四川大学", location: "四川", type: "综合类", category: "A类", features: ["西南地区综合实力最强", "医学口腔医学领先", "文史哲传统深厚", "多学科协调发展"] },
+            { name: "重庆大学", location: "重庆", type: "综合类", category: "A类", features: ["建筑工程享誉全国", "机械工程实力强劲", "经济管理快速发展", "西南地区重要基地"] },
+            { name: "电子科技大学", location: "四川", type: "理工类", category: "A类", features: ["电子信息领域顶尖", "通信工程全国第一", "计算机科学实力强", "产业化特色鲜明"] },
+            { name: "西安交通大学", location: "陕西", type: "综合类", category: "A类", features: ["工程技术实力雄厚", "能源动力领域领先", "管理学科声誉卓著", "西迁精神传承"] },
+            { name: "西北工业大学", location: "陕西", type: "理工类", category: "A类", features: ["三航特色鲜明", "国防科技实力强", "材料科学领域先进", "军民融合典范"] },
+            { name: "兰州大学", location: "甘肃", type: "综合类", category: "A类", features: ["西北地区学术重镇", "基础学科实力强劲", "生态环境研究领先", "艰苦奋斗精神"] },
+            { name: "国防科技大学", location: "湖南", type: "军事类", category: "A类", features: ["军事科技领域顶尖", "计算机科学世界领先", "航天技术实力强", "军事人才摇篮"] },
+            { name: "西北农林科技大学", location: "陕西", type: "农林类", category: "B类", features: ["农林科学领域权威", "旱区农业研究先进", "生物技术应用领先", "服务西北农业"] },
+            { name: "东北大学", location: "辽宁", type: "理工类", category: "B类", features: ["冶金材料领域权威", "自动化技术领先", "计算机应用先进", "东北振兴服务"] },
+            { name: "郑州大学", location: "河南", type: "综合类", category: "B类", features: ["河南省重点建设", "材料科学快速发展", "医学教育历史悠久", "服务中原经济区"] },
+            { name: "湖南师范大学", location: "湖南", type: "师范类", category: "B类", features: ["师范教育特色鲜明", "文学教育学强势", "伦理学全国领先", "湖湘文化传承"] },
+            { name: "云南大学", location: "云南", type: "综合类", category: "B类", features: ["西南边疆综合大学", "民族学人类学著名", "生物多样性研究", "面向南亚东南亚"] },
+            { name: "新疆大学", location: "新疆", type: "综合类", category: "B类", features: ["西北边疆重要基地", "民族团结教育典范", "中亚研究特色鲜明", "丝绸之路经济带"] }
+        ];
+
+        // 世界一流学科建设数据（部分示例）
+        const worldClassDisciplines = {
+            "数学": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "北京师范大学", location: "北京" },
+                { university: "首都师范大学", location: "北京" },
+                { university: "南开大学", location: "天津" },
+                { university: "复旦大学", location: "上海" },
+                { university: "上海交通大学", location: "上海" },
+                { university: "华东师范大学", location: "上海" },
+                { university: "南京大学", location: "江苏" },
+                { university: "苏州大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "中南大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "西安交通大学", location: "陕西" },
+                { university: "西北大学", location: "陕西" }
+            ],
+            "物理学": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "中国科学院大学", location: "北京" },
+                { university: "北京师范大学", location: "北京" },
+                { university: "南开大学", location: "天津" },
+                { university: "复旦大学", location: "上海" },
+                { university: "上海交通大学", location: "上海" },
+                { university: "华东师范大学", location: "上海" },
+                { university: "南京大学", location: "江苏" },
+                { university: "东南大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "华中师范大学", location: "湖北" },
+                { university: "中南大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "西安交通大学", location: "陕西" }
+            ],
+            "化学": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "北京化工大学", location: "北京" },
+                { university: "北京理工大学", location: "北京" },
+                { university: "南开大学", location: "天津" },
+                { university: "天津大学", location: "天津" },
+                { university: "大连理工大学", location: "辽宁" },
+                { university: "复旦大学", location: "上海" },
+                { university: "华东理工大学", location: "上海" },
+                { university: "南京大学", location: "江苏" },
+                { university: "苏州大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "湖南大学", location: "湖南" },
+                { university: "中南大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "华南理工大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "西北大学", location: "陕西" }
+            ],
+            "生物学": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "中国农业大学", location: "北京" },
+                { university: "北京师范大学", location: "北京" },
+                { university: "首都医科大学", location: "北京" },
+                { university: "南开大学", location: "天津" },
+                { university: "复旦大学", location: "上海" },
+                { university: "上海交通大学", location: "上海" },
+                { university: "华东师范大学", location: "上海" },
+                { university: "南京大学", location: "江苏" },
+                { university: "东南大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "华中农业大学", location: "湖北" },
+                { university: "中南大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "华南理工大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "西北农林科技大学", location: "陕西" }
+            ],
+            "计算机科学与技术": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "北京航空航天大学", location: "北京" },
+                { university: "北京理工大学", location: "北京" },
+                { university: "北京邮电大学", location: "北京" },
+                { university: "中国科学院大学", location: "北京" },
+                { university: "南开大学", location: "天津" },
+                { university: "天津大学", location: "天津" },
+                { university: "大连理工大学", location: "辽宁" },
+                { university: "东北大学", location: "辽宁" },
+                { university: "吉林大学", location: "吉林" },
+                { university: "哈尔滨工业大学", location: "黑龙江" },
+                { university: "哈尔滨工程大学", location: "黑龙江" },
+                { university: "复旦大学", location: "上海" },
+                { university: "上海交通大学", location: "上海" },
+                { university: "华东师范大学", location: "上海" },
+                { university: "南京大学", location: "江苏" },
+                { university: "东南大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "中南大学", location: "湖南" },
+                { university: "国防科技大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "华南理工大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "电子科技大学", location: "四川" },
+                { university: "重庆大学", location: "重庆" },
+                { university: "西安交通大学", location: "陕西" },
+                { university: "西北工业大学", location: "陕西" },
+                { university: "兰州大学", location: "甘肃" }
+            ],
+            "临床医学": [
+                { university: "北京大学", location: "北京" },
+                { university: "清华大学", location: "北京" },
+                { university: "首都医科大学", location: "北京" },
+                { university: "中国医科大学", location: "辽宁" },
+                { university: "复旦大学", location: "上海" },
+                { university: "上海交通大学", location: "上海" },
+                { university: "南京医科大学", location: "江苏" },
+                { university: "浙江大学", location: "浙江" },
+                { university: "中国科学技术大学", location: "安徽" },
+                { university: "厦门大学", location: "福建" },
+                { university: "山东大学", location: "山东" },
+                { university: "华中科技大学", location: "湖北" },
+                { university: "中南大学", location: "湖南" },
+                { university: "中山大学", location: "广东" },
+                { university: "南方医科大学", location: "广东" },
+                { university: "四川大学", location: "四川" },
+                { university: "重庆医科大学", location: "重庆" },
+                { university: "第四军医大学", location: "陕西" }
+            ]
+        };
+
+        let filteredWorldClassUniversities = [...worldClassUniversities];
+        let filteredDisciplines = { ...worldClassDisciplines };
+
+        function switchTab(tabName) {
+            // 隐藏所有tab内容
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 移除所有tab按钮的active状态
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // 显示选中的tab内容
+            document.getElementById(tabName).classList.add('active');
+
+            // 设置对应tab按钮为active
+            event.target.classList.add('active');
+
+            // 根据tab类型渲染对应内容
+            if (tabName === 'universities') {
+                renderWorldClassUniversities(filteredWorldClassUniversities);
+            } else if (tabName === 'disciplines') {
+                renderDisciplines(filteredDisciplines);
+            }
+        }
+
+        function renderWorldClassUniversities(universities) {
+            const grid = document.getElementById('worldClassUniversitiesGrid');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            universities.forEach(university => {
+                const card = document.createElement('div');
+                card.className = 'university-card';
+
+                let badges = `<span class="badge badge-world-class">${university.category}类</span>`;
+                badges += '<span class="badge badge-985">985工程</span>';
+                badges += '<span class="badge badge-211">211工程</span>';
+
+                card.innerHTML = `
+                    <h3>${university.name}</h3>
+                    <div class="university-location">${university.location}</div>
+                    <div class="university-type">${university.type}</div>
+                    <div class="university-badges">${badges}</div>
+                    <ul class="university-features">
+                        ${university.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <div class="university-footer">
+                        <div class="founded-year">建设类别：${university.category}类建设高校</div>
+                        <a href="#" class="learn-more">了解更多 →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // 更新搜索结果
+            if (document.getElementById('universitySearchResults')) {
+                document.getElementById('universitySearchResults').textContent = `共${universities.length}所世界一流大学建设高校`;
+            }
+        }
+
+        function renderDisciplines(disciplines) {
+            const grid = document.getElementById('disciplinesGrid');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            Object.entries(disciplines).forEach(([disciplineName, universities]) => {
+                const card = document.createElement('div');
+                card.className = 'discipline-card';
+
+                card.innerHTML = `
+                    <div class="discipline-name">${disciplineName}</div>
+                    <ul class="discipline-universities">
+                        ${universities.map(uni => `
+                            <li>
+                                <span class="university-name">${uni.university}</span>
+                                <span class="university-province">${uni.location}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                grid.appendChild(card);
+            });
+
+            // 计算总学科数
+            const totalDisciplines = Object.values(disciplines).reduce((sum, unis) => sum + unis.length, 0);
+            if (document.getElementById('disciplineSearchResults')) {
+                document.getElementById('disciplineSearchResults').textContent = `共${totalDisciplines}个世界一流学科`;
+            }
+        }
+
+        function filterWorldClassUniversities() {
+            const provinceFilter = document.getElementById('provinceFilterUniv').value;
+
+            filteredWorldClassUniversities = worldClassUniversities.filter(university => {
+                return !provinceFilter || university.location === provinceFilter;
+            });
+
+            renderWorldClassUniversities(filteredWorldClassUniversities);
+        }
+
+        function filterDisciplines() {
+            const provinceFilter = document.getElementById('provinceFilterDisc').value;
+            const disciplineFilter = document.getElementById('disciplineFilter').value;
+
+            filteredDisciplines = {};
+
+            Object.entries(worldClassDisciplines).forEach(([disciplineName, universities]) => {
+                // 按学科筛选
+                if (disciplineFilter && disciplineName !== disciplineFilter) {
+                    return;
+                }
+
+                // 按省份筛选
+                const filteredUniversities = universities.filter(uni => {
+                    return !provinceFilter || uni.location === provinceFilter;
+                });
+
+                if (filteredUniversities.length > 0) {
+                    filteredDisciplines[disciplineName] = filteredUniversities;
+                }
+            });
+
+            renderDisciplines(filteredDisciplines);
+        }
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认显示介绍页面，不需要渲染数据
+        });
+    </script>
+</body>
+</html>
