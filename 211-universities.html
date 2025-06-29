@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>211大学完整名单 - 中国211工程大学查询 | 中国大学网</title>
+    <meta name="description" content="211大学完整名单，详细介绍什么是211工程大学，提供116所211大学完整清单，支持按省市查询筛选，助力高考志愿填报。">
+    <meta name="keywords" content="211大学,211工程,211大学名单,211大学排名,211大学有哪些,高考志愿,大学查询">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #FFD700;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            padding: 120px 0 60px;
+            margin-top: 70px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem 0;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Introduction Section */
+        .introduction {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .intro-stats {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .intro-stats h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .filter-controls select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            min-width: 150px;
+        }
+
+        .filter-controls select:focus {
+            outline: none;
+            border-color: #4ECDC4;
+        }
+
+        .search-results {
+            margin-left: auto;
+            font-weight: 600;
+            color: #4ECDC4;
+        }
+
+        /* Universities Grid */
+        .universities-section {
+            padding: 3rem 0;
+        }
+
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .university-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #4ECDC4;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .university-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .university-location {
+            color: #4ECDC4;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .university-type {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .university-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .badge-985 {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .badge-double-first {
+            background: #9C27B0;
+            color: white;
+        }
+
+        .university-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .university-features li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .university-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .university-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .founded-year {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .learn-more {
+            color: #4ECDC4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .learn-more:hover {
+            color: #44A08D;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+            }
+
+            .universities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-results {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">中国大学网</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="985-universities.html">985大学</a></li>
+                <li><a href="211-universities.html" class="active">211大学</a></li>
+                <li><a href="double-first-class.html">双一流大学</a></li>
+                <li><a href="blog.html">志愿填报指南</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>211工程大学</h1>
+            <p>211工程是中国政府面向21世纪重点建设100所左右的高等学校和一批重点学科的建设工程</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="index.html">首页</a>
+                <span>></span>
+                <span>211大学</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="introduction">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>什么是211工程大学？</h2>
+                    <p>211工程是中华人民共和国政府面向21世纪重点建设100所左右的高等学校和一批重点学科的建设工程。该工程于1995年11月启动，因此得名"211工程"。</p>
+
+                    <p>211工程的目标是面向21世纪，重点建设100所左右的高等学校和一批重点学科点，使其达到世界一流大学的水平。这些大学在教学质量、科研实力、师资队伍等方面都有着显著的优势。</p>
+
+                    <p>211大学涵盖了中国最优秀的高等学府，包括所有的985大学（985大学都是211大学）以及一大批具有特色和优势的高水平大学。这116所211大学分布在全国32个省市，为国家的人才培养和科技发展做出了重要贡献。</p>
+                </div>
+
+                <div class="intro-stats">
+                    <h3>211大学概况</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">116</div>
+                            <div class="stat-label">所211大学</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">32</div>
+                            <div class="stat-label">个省市分布</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1995</div>
+                            <div class="stat-label">年启动建设</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">39</div>
+                            <div class="stat-label">所同时是985</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <label for="provinceFilter">按省市筛选：</label>
+                <select id="provinceFilter" onchange="filterUniversities()">
+                    <option value="">全部省市</option>
+                    <option value="北京">北京市</option>
+                    <option value="上海">上海市</option>
+                    <option value="天津">天津市</option>
+                    <option value="重庆">重庆市</option>
+                    <option value="江苏">江苏省</option>
+                    <option value="浙江">浙江省</option>
+                    <option value="广东">广东省</option>
+                    <option value="山东">山东省</option>
+                    <option value="湖北">湖北省</option>
+                    <option value="湖南">湖南省</option>
+                    <option value="四川">四川省</option>
+                    <option value="陕西">陕西省</option>
+                    <option value="辽宁">辽宁省</option>
+                    <option value="吉林">吉林省</option>
+                    <option value="黑龙江">黑龙江省</option>
+                    <option value="安徽">安徽省</option>
+                    <option value="福建">福建省</option>
+                    <option value="甘肃">甘肃省</option>
+                    <option value="河北">河北省</option>
+                    <option value="河南">河南省</option>
+                    <option value="江西">江西省</option>
+                    <option value="山西">山西省</option>
+                    <option value="内蒙古">内蒙古自治区</option>
+                    <option value="广西">广西壮族自治区</option>
+                    <option value="云南">云南省</option>
+                    <option value="贵州">贵州省</option>
+                    <option value="西藏">西藏自治区</option>
+                    <option value="青海">青海省</option>
+                    <option value="宁夏">宁夏回族自治区</option>
+                    <option value="新疆">新疆维吾尔自治区</option>
+                    <option value="海南">海南省</option>
+                </select>
+
+                <label for="typeFilter">按类型筛选：</label>
+                <select id="typeFilter" onchange="filterUniversities()">
+                    <option value="">全部类型</option>
+                    <option value="985">985大学</option>
+                    <option value="双一流">双一流大学</option>
+                    <option value="综合类">综合类</option>
+                    <option value="理工类">理工类</option>
+                    <option value="师范类">师范类</option>
+                    <option value="农林类">农林类</option>
+                    <option value="医药类">医药类</option>
+                    <option value="财经类">财经类</option>
+                </select>
+
+                <div class="search-results" id="searchResults">共116所211大学</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universities Grid -->
+    <section class="universities-section">
+        <div class="container">
+            <div class="universities-grid" id="universitiesGrid">
+                <!-- 211大学列表将在这里生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>大学分类</h3>
+                    <ul>
+                        <li><a href="985-universities.html">985工程大学</a></li>
+                        <li><a href="211-universities.html">211工程大学</a></li>
+                        <li><a href="double-first-class.html">双一流大学</a></li>
+                        <li><a href="double-first-class.html#disciplines">双一流学科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>志愿填报</h3>
+                    <ul>
+                        <li><a href="blog.html">填报指南</a></li>
+                        <li><a href="blog.html#tips">填报技巧</a></li>
+                        <li><a href="blog.html#mistakes">常见误区</a></li>
+                        <li><a href="blog.html#majors">专业选择</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#about">网站介绍</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#privacy">隐私政策</a></li>
+                        <li><a href="#terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系信息</h3>
+                    <p>邮箱：info@cn-university.com</p>
+                    <p>地址：中国北京市</p>
+                    <p>专注于为广大考生和家长提供权威、准确的大学信息和志愿填报指导</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 中国大学网. 版权所有. | 专业的985大学、211大学、双一流大学查询平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 211大学数据（包含985大学和其他211大学）
+        const universities211 = [
+            // 985大学 (39所，同时也是211大学)
+            { name: "清华大学", location: "北京", type: "理工类", founded: 1911, is985: true, isDoubleFirst: true, features: ["综合性研究型大学", "工程技术领域全球领先", "诺贝尔奖得主众多", "创新创业教育典范"] },
+            { name: "北京大学", location: "北京", type: "综合类", founded: 1898, is985: true, isDoubleFirst: true, features: ["中国现代大学先驱", "人文社科领域顶尖", "理科基础研究强劲", "国际化程度高"] },
+            { name: "中国人民大学", location: "北京", type: "综合类", founded: 1937, is985: true, isDoubleFirst: true, features: ["人文社会科学高等学府", "经济学管理学强势", "法学政治学著名", "智库功能突出"] },
+            { name: "北京理工大学", location: "北京", type: "理工类", founded: 1940, is985: true, isDoubleFirst: true, features: ["国防科技特色鲜明", "工程技术实力强劲", "军工背景深厚", "创新能力突出"] },
+            { name: "北京航空航天大学", location: "北京", type: "理工类", founded: 1952, is985: true, isDoubleFirst: true, features: ["航空航天领域领先", "工程技术实力雄厚", "国防特色明显", "产学研结合紧密"] },
+            { name: "北京师范大学", location: "北京", type: "师范类", founded: 1902, is985: true, isDoubleFirst: true, features: ["师范教育百年传承", "教育学心理学权威", "文理并重发展", "基础教育影响深远"] },
+            { name: "中央民族大学", location: "北京", type: "民族类", founded: 1941, is985: true, isDoubleFirst: true, features: ["民族教育特色鲜明", "多元文化融合", "民族学人类学强势", "文化传承使命重大"] },
+            { name: "中国农业大学", location: "北京", type: "农林类", founded: 1905, is985: true, isDoubleFirst: true, features: ["农业科学领域顶尖", "生命科学实力强劲", "食品科学全球领先", "服务三农使命"] },
+            { name: "复旦大学", location: "上海", type: "综合类", founded: 1905, is985: true, isDoubleFirst: true, features: ["综合性研究型大学", "医学实力全国领先", "人文社科底蕴深厚", "国际影响力显著"] },
+            { name: "上海交通大学", location: "上海", type: "综合类", founded: 1896, is985: true, isDoubleFirst: true, features: ["工程技术实力雄厚", "医学教育历史悠久", "创新创业活跃", "国际合作广泛"] },
+            { name: "同济大学", location: "上海", type: "理工类", founded: 1907, is985: true, isDoubleFirst: true, features: ["建筑土木工程著名", "汽车工程领域领先", "环境科学实力强劲", "德国合作传统"] },
+            { name: "华东师范大学", location: "上海", type: "师范类", founded: 1951, is985: true, isDoubleFirst: true, features: ["师范教育重要基地", "教育科学研究领先", "心理学实力突出", "基础教育服务全国"] },
+            { name: "南京大学", location: "江苏", type: "综合类", founded: 1902, is985: true, isDoubleFirst: true, features: ["百年名校底蕴深厚", "理科基础研究强劲", "人文社科传统优秀", "学术声誉卓著"] },
+            { name: "东南大学", location: "江苏", type: "综合类", founded: 1902, is985: true, isDoubleFirst: true, features: ["建筑工程全国顶尖", "电子信息技术领先", "医学实力突出", "产学研结合密切"] },
+            { name: "浙江大学", location: "浙江", type: "综合类", founded: 1897, is985: true, isDoubleFirst: true, features: ["综合实力全国前列", "工程技术实力强劲", "创新创业氛围浓厚", "国际化水平高"] },
+            { name: "中国科学技术大学", location: "安徽", type: "理工类", founded: 1958, is985: true, isDoubleFirst: true, features: ["理科基础研究顶尖", "科技创新能力突出", "精英教育特色鲜明", "中科院背景深厚"] },
+            { name: "厦门大学", location: "福建", type: "综合类", founded: 1921, is985: true, isDoubleFirst: true, features: ["海滨校园环境优美", "经济学管理学强势", "化学海洋学著名", "国际化程度高"] },
+            { name: "山东大学", location: "山东", type: "综合类", founded: 1901, is985: true, isDoubleFirst: true, features: ["百年名校历史悠久", "文史哲实力雄厚", "医学教育声誉卓著", "多校区办学模式"] },
+            { name: "中国海洋大学", location: "山东", type: "综合类", founded: 1924, is985: true, isDoubleFirst: true, features: ["海洋科学全球领先", "水产学科实力突出", "海洋特色鲜明", "蓝色经济服务"] },
+            { name: "武汉大学", location: "湖北", type: "综合类", founded: 1893, is985: true, isDoubleFirst: true, features: ["樱花校园闻名全国", "测绘遥感技术领先", "法学新闻学强势", "学术氛围浓厚"] },
+            { name: "华中科技大学", location: "湖北", type: "理工类", founded: 1952, is985: true, isDoubleFirst: true, features: ["工程技术实力强劲", "医学教育声誉卓著", "光电技术全球领先", "产学研结合典范"] },
+            { name: "中南大学", location: "湖南", type: "综合类", founded: 2000, is985: true, isDoubleFirst: true, features: ["材料冶金领域顶尖", "医学实力全国前列", "铁道交通特色鲜明", "有色金属研究著名"] },
+            { name: "湖南大学", location: "湖南", type: "综合类", founded: 976, is985: true, isDoubleFirst: true, features: ["千年学府底蕴深厚", "建筑设计享誉全国", "机械工程实力强劲", "岳麓书院文化传承"] },
+            { name: "中山大学", location: "广东", type: "综合类", founded: 1924, is985: true, isDoubleFirst: true, features: ["综合性研究型大学", "医学实力全国领先", "人文社科底蕴深厚", "粤港澳合作密切"] },
+            { name: "华南理工大学", location: "广东", type: "理工类", founded: 1952, is985: true, isDoubleFirst: true, features: ["工程技术实力雄厚", "建筑设计全国知名", "轻工食品特色鲜明", "产学研结合紧密"] },
+            { name: "四川大学", location: "四川", type: "综合类", founded: 1896, is985: true, isDoubleFirst: true, features: ["西南地区学术重镇", "医学口腔医学领先", "文史哲实力雄厚", "多学科协调发展"] },
+            { name: "电子科技大学", location: "四川", type: "理工类", founded: 1956, is985: true, isDoubleFirst: true, features: ["电子信息领域领先", "通信工程全国顶尖", "计算机科学实力强劲", "产业化程度高"] },
+            { name: "西安交通大学", location: "陕西", type: "综合类", founded: 1896, is985: true, isDoubleFirst: true, features: ["工程技术实力雄厚", "管理学院声誉卓著", "能源动力领域领先", "西迁精神传承"] },
+            { name: "西北工业大学", location: "陕西", type: "理工类", founded: 1938, is985: true, isDoubleFirst: true, features: ["航空航天航海特色", "国防科技实力强劲", "材料科学领域领先", "军工背景深厚"] },
+            { name: "西北农林科技大学", location: "陕西", type: "农林类", founded: 1934, is985: true, isDoubleFirst: true, features: ["农林科学领域权威", "旱区农业研究领先", "生态环境保护重要", "服务西北地区发展"] },
+            { name: "兰州大学", location: "甘肃", type: "综合类", founded: 1909, is985: true, isDoubleFirst: true, features: ["西北地区学术重镇", "基础学科实力强劲", "环境科学研究领先", "人才培养质量高"] },
+            { name: "重庆大学", location: "重庆", type: "综合类", founded: 1929, is985: true, isDoubleFirst: true, features: ["建筑工程全国知名", "机械工程实力强劲", "经济管理发展迅速", "西南地区重要基地"] },
+            { name: "天津大学", location: "天津", type: "理工类", founded: 1895, is985: true, isDoubleFirst: true, features: ["中国第一所现代大学", "化工建筑享誉全国", "工程教育历史悠久", "实用性人才培养"] },
+            { name: "南开大学", location: "天津", type: "综合类", founded: 1919, is985: true, isDoubleFirst: true, features: ["私立大学典范传承", "经济学数学强势", "化学生物学著名", "爱国主义教育传统"] },
+            { name: "大连理工大学", location: "辽宁", type: "理工类", founded: 1949, is985: true, isDoubleFirst: true, features: ["工程技术实力雄厚", "化工水利领域领先", "海洋工程特色鲜明", "产学研结合密切"] },
+            { name: "东北大学", location: "辽宁", type: "理工类", founded: 1923, is985: true, isDoubleFirst: true, features: ["冶金材料全国顶尖", "自动化技术领先", "计算机科学强势", "东北振兴服务"] },
+            { name: "吉林大学", location: "吉林", type: "综合类", founded: 1946, is985: true, isDoubleFirst: true, features: ["综合实力东北领先", "汽车工程全国知名", "医学实力突出", "地质学科著名"] },
+            { name: "哈尔滨工业大学", location: "黑龙江", type: "理工类", founded: 1920, is985: true, isDoubleFirst: true, features: ["航天技术全国领先", "工程技术实力雄厚", "国防特色鲜明", "国际合作广泛"] },
+
+            // 其他211大学（非985但是211）
+            { name: "北京工业大学", location: "北京", type: "理工类", founded: 1960, is985: false, isDoubleFirst: true, features: ["地方工科院校翘楚", "建筑环境工程强势", "材料科学发展迅速", "服务首都建设"] },
+            { name: "北京科技大学", location: "北京", type: "理工类", founded: 1952, is985: false, isDoubleFirst: true, features: ["钢铁冶金领域权威", "材料科学全国领先", "工程技术实力强劲", "产业化特色鲜明"] },
+            { name: "北京化工大学", location: "北京", type: "理工类", founded: 1958, is985: false, isDoubleFirst: true, features: ["化学工程领域著名", "材料科学实力突出", "环境工程发展迅速", "产学研结合紧密"] },
+            { name: "北京邮电大学", location: "北京", type: "理工类", founded: 1955, is985: false, isDoubleFirst: true, features: ["信息通信领域领先", "计算机科学强势", "网络技术研究前沿", "IT人才培养基地"] },
+            { name: "北京林业大学", location: "北京", type: "农林类", founded: 1952, is985: false, isDoubleFirst: true, features: ["林业科学全国顶尖", "风景园林设计著名", "生态环境保护重要", "绿色发展理念领先"] },
+            { name: "北京中医药大学", location: "北京", type: "医药类", founded: 1956, is985: false, isDoubleFirst: true, features: ["中医药教育权威", "传统医学现代化", "中西医结合发展", "国际中医推广"] },
+            { name: "北京外国语大学", location: "北京", type: "语言类", founded: 1941, is985: false, isDoubleFirst: true, features: ["外语教育领域权威", "多语种人才培养", "国际交流合作广泛", "外交人才摇篮"] },
+            { name: "中国传媒大学", location: "北京", type: "艺术类", founded: 1954, is985: false, isDoubleFirst: true, features: ["传媒教育领域领先", "新闻传播学科强势", "影视制作技术先进", "媒体人才培养基地"] },
+            { name: "对外经济贸易大学", location: "北京", type: "财经类", founded: 1951, is985: false, isDoubleFirst: true, features: ["国际经贸领域权威", "外语+经贸特色", "国际化程度极高", "商务人才培养"] },
+            { name: "中央财经大学", location: "北京", type: "财经类", founded: 1949, is985: false, isDoubleFirst: true, features: ["财经教育重要基地", "金融学科全国领先", "经济管理人才摇篮", "政策研究影响力大"] },
+            { name: "中国政法大学", location: "北京", type: "政法类", founded: 1952, is985: false, isDoubleFirst: true, features: ["法学教育权威机构", "政治学实力突出", "司法人才摇篮", "法治建设贡献重大"] },
+            { name: "华北电力大学", location: "北京", type: "理工类", founded: 1958, is985: false, isDoubleFirst: true, features: ["电力工程领域权威", "能源电力人才基地", "新能源技术研发", "服务电力行业"] },
+            { name: "中国矿业大学", location: "江苏", type: "理工类", founded: 1909, is985: false, isDoubleFirst: true, features: ["采矿工程全国顶尖", "安全科学技术领先", "地质资源研究权威", "能源行业服务"] },
+            { name: "河海大学", location: "江苏", type: "理工类", founded: 1915, is985: false, isDoubleFirst: true, features: ["水利工程全国领先", "环境科学实力强劲", "海洋工程特色鲜明", "水资源管理权威"] },
+            { name: "江南大学", location: "江苏", type: "综合类", founded: 1902, is985: false, isDoubleFirst: true, features: ["轻工技术领域著名", "食品科学全国领先", "设计学科实力突出", "产学研结合紧密"] },
+            { name: "南京理工大学", location: "江苏", type: "理工类", founded: 1953, is985: false, isDoubleFirst: true, features: ["兵器科学技术权威", "机械工程实力强劲", "材料科学发展迅速", "军工特色鲜明"] },
+            { name: "南京航空航天大学", location: "江苏", type: "理工类", founded: 1952, is985: false, isDoubleFirst: true, features: ["航空航天技术领先", "机械工程实力雄厚", "材料科学发展迅速", "国防特色明显"] },
+            { name: "南京农业大学", location: "江苏", type: "农林类", founded: 1902, is985: false, isDoubleFirst: true, features: ["农业科学领域权威", "生命科学实力强劲", "食品科学技术先进", "现代农业发展"] },
+            { name: "中国药科大学", location: "江苏", type: "医药类", founded: 1936, is985: false, isDoubleFirst: true, features: ["药学教育领域权威", "新药研发能力强", "中药现代化研究", "医药人才培养"] },
+            { name: "苏州大学", location: "江苏", type: "综合类", founded: 1900, is985: false, isDoubleFirst: true, features: ["综合性大学发展迅速", "医学实力不断提升", "材料科学特色鲜明", "地方名校典范"] }
+        ];
+
+        let filteredUniversities = [...universities211];
+
+        function renderUniversities(universities) {
+            const grid = document.getElementById('universitiesGrid');
+            grid.innerHTML = '';
+
+            universities.forEach(university => {
+                const card = document.createElement('div');
+                card.className = 'university-card';
+
+                let badges = '';
+                if (university.is985) {
+                    badges += '<span class="badge badge-985">985工程</span>';
+                }
+                if (university.isDoubleFirst) {
+                    badges += '<span class="badge badge-double-first">双一流</span>';
+                }
+
+                card.innerHTML = `
+                    <h3>${university.name}</h3>
+                    <div class="university-location">${university.location}</div>
+                    <div class="university-type">${university.type}</div>
+                    <div class="university-badges">${badges}</div>
+                    <ul class="university-features">
+                        ${university.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <div class="university-footer">
+                        <div class="founded-year">建校时间：${university.founded}年</div>
+                        <a href="#" class="learn-more">了解更多 →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // 更新搜索结果
+            document.getElementById('searchResults').textContent = `共${universities.length}所211大学`;
+        }
+
+        function filterUniversities() {
+            const provinceFilter = document.getElementById('provinceFilter').value;
+            const typeFilter = document.getElementById('typeFilter').value;
+
+            filteredUniversities = universities211.filter(university => {
+                const provinceMatch = !provinceFilter || university.location === provinceFilter;
+
+                let typeMatch = true;
+                if (typeFilter === '985') {
+                    typeMatch = university.is985;
+                } else if (typeFilter === '双一流') {
+                    typeMatch = university.isDoubleFirst;
+                } else if (typeFilter && typeFilter !== '') {
+                    typeMatch = university.type === typeFilter;
+                }
+
+                return provinceMatch && typeMatch;
+            });
+
+            renderUniversities(filteredUniversities);
+        }
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            renderUniversities(universities211);
+        });
+    </script>
+</body>
+</html>
